@@ -21,4 +21,17 @@ add_action('wp_enqueue_scripts', function() {
             filemtime($css_file)
         );
     }
+    // Effet "Entrer dans la Lumiere" - WebGL waves (accueil uniquement)
+    if (is_front_page()) {
+        $js_file = get_template_directory() . '/lumiere.js';
+        if (file_exists($js_file)) {
+            wp_enqueue_script(
+                'aspirateurs-lumiere',
+                get_template_directory_uri() . '/lumiere.js',
+                [],
+                filemtime($js_file),
+                true
+            );
+        }
+    }
 }, 9999);

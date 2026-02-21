@@ -140,9 +140,13 @@ html {
 .entry-content > * + *,
 .entry-content .wp-block-group + .wp-block-group,
 .entry-content .wp-block-group > .wp-block-group + .wp-block-group,
-.entry-content .wp-block-group > * + * {
+.entry-content .wp-block-group > *:not(.wp-block-columns) + *:not(.wp-block-columns) {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+/* Balanced gap between consecutive column rows */
+.entry-content .wp-block-columns + .wp-block-columns {
+  margin-top: 2rem !important;
 }
 .entry-content > .wp-block-group,
 .entry-content > .wp-block-group > .wp-block-group {
