@@ -1,0 +1,406 @@
+/* ============================================
+   ASPIRATEURS QUANTIQUES - PSYCHEDELIC 70s
+   Theme: Astra - Custom Override
+   ============================================ */
+
+/* --- Animations --- */
+@keyframes headerGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(218,165,32,0.5), 0 0 20px rgba(218,165,32,0.2); }
+  50% { text-shadow: 0 0 20px rgba(218,165,32,0.9), 0 0 40px rgba(218,165,32,0.4), 0 0 60px rgba(186,85,211,0.2); }
+}
+@keyframes colorShift {
+  0% { color: #DAA520; }
+  25% { color: #D084E8; }
+  50% { color: #7CFC00; }
+  75% { color: #E8935A; }
+  100% { color: #DAA520; }
+}
+@keyframes borderGlow {
+  0%, 100% { border-color: #DAA520; box-shadow: 0 0 8px rgba(218,165,32,0.3); }
+  33% { border-color: #D084E8; box-shadow: 0 0 8px rgba(208,132,232,0.3); }
+  66% { border-color: #7CFC00; box-shadow: 0 0 8px rgba(124,252,0,0.3); }
+}
+@keyframes floatStar {
+  0%, 100% { opacity: 0.3; transform: translateY(0) scale(1); }
+  50% { opacity: 1; transform: translateY(-5px) scale(1.1); }
+}
+
+/* --- GLOBAL: Dark immersive background --- */
+body,
+html {
+  background-color: #1a0f00 !important;
+  color: #e0c9a6 !important;
+}
+#page {
+  background-color: transparent !important;
+}
+
+/* --- HEADER: Animated cosmic gradient --- */
+.ast-primary-header-bar,
+.main-header-bar,
+.ast-main-header-wrap {
+  background: linear-gradient(90deg, #1a0f00, #2d1b00, #4B0082, #2d1b00, #1a0f00) !important;
+  background-size: 300% 100% !important;
+  animation: headerGradient 8s ease infinite !important;
+  border-bottom: 1px solid #8B6914 !important;
+  box-shadow: 0 2px 20px rgba(218,165,32,0.15) !important;
+}
+
+/* --- SITE TITLE: Golden glow --- */
+.ast-site-title-wrap a,
+.site-title a,
+.ast-site-title-wrap .site-title {
+  color: #DAA520 !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
+  animation: glowPulse 3s ease-in-out infinite !important;
+  text-decoration: none !important;
+  font-size: 1.6rem !important;
+  letter-spacing: 0.02em !important;
+}
+.site-description {
+  color: #C9A84C !important;
+  font-style: italic !important;
+}
+
+/* --- NAVIGATION: Single line, golden links --- */
+.main-navigation,
+#ast-hf-menu-1,
+.ast-builder-menu-1 .main-navigation {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+.main-navigation ul,
+.main-navigation .sub-menu,
+#ast-hf-menu-1 ul.ast-nav-menu {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 0 !important;
+}
+.main-navigation ul li {
+  white-space: nowrap !important;
+}
+.main-navigation a,
+.ast-header-break-point .main-navigation ul li a,
+#ast-hf-menu-1 a {
+  color: #ffecd2 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+  transition: all 0.3s ease !important;
+  padding: 0 0.5rem !important;
+  text-transform: uppercase !important;
+}
+.main-navigation a:hover,
+#ast-hf-menu-1 a:hover {
+  color: #DAA520 !important;
+  text-shadow: 0 0 15px rgba(218,165,32,0.8), 0 0 30px rgba(218,165,32,0.4) !important;
+  background: transparent !important;
+}
+
+/* --- HIDE PAGE TITLE (Astra) --- */
+.entry-header,
+.ast-archive-description,
+.page .entry-title {
+  display: none !important;
+}
+
+/* --- CONTENT AREA: Full width, no white --- */
+.site-content,
+#content,
+.content-area,
+.site-main,
+#primary,
+#page,
+.ast-separate-container,
+.ast-plain-container {
+  background-color: transparent !important;
+  max-width: 100% !important;
+}
+.ast-container,
+.site-content .ast-container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  display: block !important;
+}
+/* Blocks full width, kill all spacing and rounded corners */
+.entry-content .wp-block-group {
+  max-width: 100% !important;
+  border-radius: 0 !important;
+}
+/* Remove ALL gaps and margins between sections - deeply nested */
+.entry-content > * + *,
+.entry-content .wp-block-group + .wp-block-group,
+.entry-content .wp-block-group > .wp-block-group + .wp-block-group,
+.entry-content .wp-block-group > * + * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.entry-content > .wp-block-group,
+.entry-content > .wp-block-group > .wp-block-group {
+  margin: 0 !important;
+}
+/* Constrained layouts should not clip content width */
+.entry-content .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: 100% !important;
+}
+.entry-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* Nuke Astra's content boxes/padding */
+.ast-separate-container .ast-article-single,
+.ast-separate-container .ast-article-post,
+.ast-separate-container .comment-respond,
+.ast-separate-container .ast-comment-list li,
+.ast-separate-container .ast-woocommerce-container,
+.ast-separate-container .site-main,
+.ast-separate-container .site-main > article,
+.ast-separate-container .ast-article-post,
+.ast-separate-container #primary {
+  background-color: transparent !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+/* Remove Astra top/bottom margins on content */
+.site-main > .ast-article-single {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+/* Remove gap between header and content */
+.site-content,
+#primary,
+.content-area {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.site-main {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.ast-no-sidebar .entry-content .alignwide {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* --- HEADINGS: Psychedelic effects + Playfair Display --- */
+.entry-content h1,
+.entry-content h2,
+.entry-content h3 {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  letter-spacing: -0.02em !important;
+}
+.entry-content h1 {
+  animation: colorShift 6s ease-in-out infinite !important;
+  font-weight: 600 !important;
+  font-style: italic !important;
+}
+.entry-content h2 {
+  animation: glowPulse 4s ease-in-out infinite !important;
+  font-weight: 600 !important;
+  font-style: italic !important;
+}
+.entry-content h3 {
+  font-weight: 600 !important;
+  font-style: italic !important;
+}
+
+/* --- TEXT: Colors --- */
+.entry-content p,
+.entry-content li {
+  color: inherit !important;
+}
+.entry-content a:not(.wp-block-button__link) {
+  color: #DAA520 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+.entry-content a:not(.wp-block-button__link):hover {
+  color: #FFD700 !important;
+  text-shadow: 0 0 10px rgba(218,165,32,0.5) !important;
+}
+
+/* --- CARDS: Glowing borders --- */
+.entry-content .wp-block-column[style*="border"] {
+  animation: borderGlow 4s ease-in-out infinite !important;
+  transition: transform 0.3s ease !important;
+}
+.entry-content .wp-block-column[style*="border"]:hover {
+  transform: translateY(-3px) !important;
+}
+
+/* --- BUTTONS: Cosmic glow --- */
+.wp-block-button__link {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 15px rgba(218,165,32,0.4) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+.wp-block-button__link:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 0 25px rgba(218,165,32,0.8), 0 0 50px rgba(186,85,211,0.3) !important;
+}
+
+/* --- SEPARATORS: Animated glow --- */
+.wp-block-separator {
+  animation: borderGlow 5s ease-in-out infinite !important;
+}
+
+/* --- BLOCKQUOTE --- */
+.wp-block-quote {
+  border-left-color: #DAA520 !important;
+}
+
+/* --- FOOTER: Dark cosmic --- */
+.site-footer,
+#colophon {
+  background: linear-gradient(90deg, #1a0f00, #2d1b00, #4B0082, #2d1b00, #1a0f00) !important;
+  background-size: 300% 100% !important;
+  animation: headerGradient 8s ease infinite !important;
+  border-top: 1px solid #8B6914 !important;
+  color: #C9A84C !important;
+}
+/* Inner footer elements: transparent bg, no double gradient */
+.site-below-footer-wrap,
+.ast-footer-overlay,
+.ast-small-footer,
+.ast-footer-copyright,
+.ast-builder-layout-element,
+.site-footer-focus-item {
+  background: transparent !important;
+  background-image: none !important;
+  animation: none !important;
+  border: none !important;
+  color: #C9A84C !important;
+}
+.site-footer a,
+.ast-small-footer a,
+.site-below-footer-wrap a {
+  color: #DAA520 !important;
+}
+.ast-footer-copyright p,
+.site-below-footer-wrap p {
+  color: #C9A84C !important;
+}
+
+/* --- SCROLLBAR: Trippy --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1a0f00;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #DAA520, #D084E8, #7CFC00, #E8935A);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFD700, #BA55D3, #00FF00, #FF6347);
+}
+* {
+  scrollbar-color: #DAA520 #1a0f00;
+}
+
+/* --- TYPOGRAPHY: Inter body + Playfair headings --- */
+body {
+  font-size: 16px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.75 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* --- REMOVE WHITE BOXES / BACKGROUNDS --- */
+.ast-separate-container .ast-article-single:not(.ast-related-post),
+.ast-separate-container .ast-article-post,
+.ast-separate-container .ast-article-single,
+.ast-separate-container #primary,
+.ast-separate-container .ast-archive-description,
+.ast-separate-container .site-main > *,
+.ast-plain-container,
+.ast-page-builder-template .site-content > .ast-container,
+article.page,
+article.post {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+/* Hide "Powered by Astra" link and pipe separator */
+.site-below-footer-wrap .ast-footer-html-inner {
+  color: #C9A84C !important;
+  font-size: 0.85rem !important;
+}
+.site-below-footer-wrap .ast-footer-html-inner a[href*="wpastra"],
+.site-below-footer-wrap .ast-footer-html-inner a[href*="wordpress.org"] {
+  display: none !important;
+}
+/* Hide the " | Powered by " text via font-size trick + span visibility */
+.site-below-footer-wrap {
+  padding: 1rem 2rem !important;
+}
+/* Override default footer gap and border */
+.site-footer,
+#colophon {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+.site-below-footer-wrap {
+  border-top: 1px solid #8B6914 !important;
+}
+.ast-small-footer-section-1,
+.ast-small-footer-section-2 {
+  border: none !important;
+}
+.ast-footer-copyright {
+  border: none !important;
+}
+/* Give nav breathing room */
+.ast-builder-grid-row {
+  padding-right: 1rem !important;
+}
+
+/* --- MOBILE: Hamburger menu colors --- */
+.ast-mobile-menu-trigger-fill,
+.ast-button-wrap .ast-mobile-menu-trigger-minimal {
+  color: #DAA520 !important;
+}
+.ast-mobile-menu-trigger .ast-mobile-svg {
+  fill: #DAA520 !important;
+}
+.ast-mobile-header-wrap .main-navigation a {
+  color: #ffecd2 !important;
+}
+.ast-mobile-header-wrap {
+  background: #2d1b00 !important;
+}
+
+/* --- Scroll to top button --- */
+#ast-scroll-top {
+  background-color: #DAA520 !important;
+  color: #1a0f00 !important;
+  border: none !important;
+  box-shadow: 0 0 15px rgba(218,165,32,0.4) !important;
+}
+#ast-scroll-top:hover {
+  background-color: #FFD700 !important;
+  box-shadow: 0 0 25px rgba(218,165,32,0.8) !important;
+}
+
+/* --- SELECTION COLOR --- */
+::selection {
+  background: rgba(218,165,32,0.3) !important;
+  color: #ffecd2 !important;
+}

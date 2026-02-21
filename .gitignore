@@ -1,0 +1,28 @@
+# WordPress core (reinstallable via wp core download)
+# On les inclut pour un clone-and-run direct
+
+# Cache et fichiers temporaires
+wp-content/cache/
+wp-content/upgrade/
+wp-content/debug.log
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+wp-content/wp-cache-config.php
+
+# Themes stock (reinstallables)
+wp-content/themes/twentytwentytwo/
+wp-content/themes/twentytwentythree/
+wp-content/themes/twentytwentyfour/
+wp-content/themes/twentytwentyfive/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Claude Code local
+.claude/
